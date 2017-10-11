@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class ArrayListEx12 {
+public class ArrayListEx16 {
 
 	public static void main(String[] args)  {
 		// TODO Auto-generated method stub
@@ -14,7 +14,7 @@ public class ArrayListEx12 {
 		Scanner sc = new Scanner(System.in);
 		
 		int a = 0, b = 0; // 움직이는 변수
-		int c = 100, d = 100;
+		int c , d;
 		int num;
 		int boomx, boomy;
 		int [][] map;
@@ -38,24 +38,19 @@ public class ArrayListEx12 {
 			}
 		}
 		
-		System.out.print("장애물 갯수 입력: ");
-		int bom = sc.nextInt();
-		
-		for(int i=0; i<bom; i++) {
-			boomx = (int)(Math.random()*first);
-			boomy = (int)(Math.random()*second);
-			map[boomx][boomy] = 11;
-		}
+		// 폭탄 랜덤 생성
+		boomx = (int)(Math.random()*(first-2))+1;
+		boomy = (int)(Math.random()*(second-2))+1;
 		
 		// map에 별 랜덤으로 생성
-		int f = (int)(Math.random()*first);
-		int s = (int)(Math.random()*second);
-		if(f==0 && s==0) {
-			f = (int)(Math.random()*first);
-			s = (int)(Math.random()*second);
-		} else {
-			map [f][s] = 1;
-		}
+		int f = (int)(Math.random()*(first-2))+1;
+		int s = (int)(Math.random()*(second-2))+1;
+		
+		// 도착지점 랜덤 생성
+		c = (int)(Math.random()*first);
+		d = (int)(Math.random()*second);
+		
+		map [f][s] = 1;
 		
 		do {
 			
@@ -65,7 +60,7 @@ public class ArrayListEx12 {
 						System.out.print("★");
 					} else if(map[i][k] == 10) {
 						System.out.print("★");
-					} else if(map[i][k] == 11 && map[i][k] != 1) {
+					} else if(boomx == i && boomy == k) {
 						System.out.print("◆");
 					} else if(map[i][k] == 0) {
 						System.out.print("☆");
@@ -83,32 +78,54 @@ public class ArrayListEx12 {
 			
 			if (num == 4) { // left
 				if(b==0) {
-					b = (second-1);
-				} else if(map[a][b-1] == 11) { 
+					System.out.println("벽입니다.");
+				} else if(boomx == a && boomy == (b-1)) {
+					if(boomx == a && boomy == 0) {
+						System.out.println("더 이상 갈 수 없습니다.");
+					} else {
+						boomy--;
+						b--;
+					}
 					
 				} else {
 					b--;
 				}
 			} else if(num == 6) { // right 
 				if(b==(second-1)) {
-					b = 0;
-				} else if(map[a][b+1] == 11) { 
-					
+					System.out.println("벽입니다.");
+				} else if(boomx == a && boomy == (b+1)) {
+					if(boomx == a && boomy == (second-1)) {
+						System.out.println("더 이상 갈 수 없습니다.");
+					} else {
+						boomy++;
+						b++;
+					}
 				} else {
 					b++;
 				}
 			} else if(num == 8) { // up
 				if(a==0) {
-					a = (first-1);
-				} else if(map[a-1][b] == 11) { 
-					
+					System.out.println("벽입니다.");
+				} else if(boomx == (a-1) && boomy == b) { 
+					if(boomx == 0 && boomy == b) {
+						System.out.println("더 이상 갈 수 없습니다.");
+					} else {
+						boomx--;
+						a--;
+					}
 				} else {
 					a--;
 				}
 			} else if(num == 2) { // down
 				if(a==(first-1)) {
-					a = 0;
-				} else if(map[a+1][b] == 11) { 
+					System.out.println("벽입니다.");
+				} else if(boomx == (a+1) && boomy == b) {
+					if(boomx == (first-1) && boomy == b) {
+						System.out.println("더 이상 갈 수 없습니다.");
+					} else {
+						boomx++;
+						a++;
+					}
 					
 				} else {
 					a++;
@@ -118,34 +135,54 @@ public class ArrayListEx12 {
 				run = false;
 			} else if(num == 3) {
 				System.out.println("초기화");
+				
 				if(map [f][s] == 0) {
-					f = (int)(Math.random()*first);
-					s = (int)(Math.random()*second);
-					map [f][s] = 1;
-					map [first-1][second-1] = 0;
+					
+					// 다시 초기화
 					for(int i=0; i<first; i++) {
 						for(int k=0; k<second; k++) {
 							map[i][k] = 0;
 						}
 					}
-					for(int i=0; i<bom; i++) {
-						boomx = (int)(Math.random()*first);
-						boomy = (int)(Math.random()*second);
-						map[boomx][boomy] = 11;
-					}
+					
+					// 별 생성
+					f = (int)(Math.random()*(first-2))+1;
+					s = (int)(Math.random()*(second-2))+1;
+					
+					map [f][s] = 1;
+					
+					// 폭탄 생성
+					boomx = (int)(Math.random()*(first-2))+1;
+					boomy = (int)(Math.random()*(second-2))+1;
+					
+					// 도착지점 랜덤 생성
+					c = (int)(Math.random()*first);
+					d = (int)(Math.random()*second);
+					
 					a = 0;
 					b = 0;
 				} else {
+					// 초기화
 					for(int i=0; i<first; i++) {
 						for(int k=0; k<second; k++) {
 							map[i][k] = 0;
 						}
 					}
-					for(int i=0; i<bom; i++) {
-						boomx = (int)(Math.random()*first);
-						boomy = (int)(Math.random()*second);
-						map[boomx][boomy] = 11;
-					}
+				
+					// 별 생성
+					f = (int)(Math.random()*(first-2))+1;
+					s = (int)(Math.random()*(second-2))+1;
+					
+					map [f][s] = 1;
+					
+					// 폭탄 생성
+					boomx = (int)(Math.random()*(first-2))+1;
+					boomy = (int)(Math.random()*(second-2))+1;
+					
+					// 도착지점 랜덤 생성
+					c = (int)(Math.random()*first);
+					d = (int)(Math.random()*second);
+					
 					a = 0;
 					b = 0;
 				}
@@ -157,15 +194,15 @@ public class ArrayListEx12 {
 				}
 			}
 			
-			if(a==f && b==s) {
+			if(boomx==f && boomy==s) {
 				// 도착지점 설정
-				map [first-1][second-1] = 5;		
+				map [c][d] = 5;		
 				// 별 없애기
 				map [f][s] = 0;
 				System.out.println("도착지점 문이 열렸습니다.");
 			}
 			
-			if(a==(first-1) && b==(second-1)) {
+			if(boomx == c && boomy == d) {
 				if(map[f][s] == 1) {
 					System.out.println("지뢰를 처리하지 못헀습니다.");
 				} else {

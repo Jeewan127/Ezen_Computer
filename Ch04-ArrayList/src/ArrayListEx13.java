@@ -11,7 +11,7 @@ public class ArrayListEx13 {
 		
 		// day Ãâ·Â
 		for(int i=0; i<week.length; i++) {
-			System.out.print(week[i] + '\t' );
+			System.out.print(week[i] + "\t" );
 		}
 		
 		System.out.println();
@@ -30,7 +30,7 @@ public class ArrayListEx13 {
 		for(int r=0; r<5; r++) {
 			for(int e=0; e<7; e++) {
 				if(day[r][e] <= 31) {
-				System.out.print(day[r][e] + " " + '\t');
+				System.out.print(day[r][e] + "\t");
 				} else {
 					break;
 				}
