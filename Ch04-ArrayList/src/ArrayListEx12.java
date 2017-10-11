@@ -13,7 +13,7 @@ public class ArrayListEx12 {
 		
 		Scanner sc = new Scanner(System.in);
 		
-		int key =0;
+		int a = 0, b = 0; // 움직이는 변수
 		int num;
 		int [][] map;
 		int [][] move;
@@ -39,38 +39,73 @@ public class ArrayListEx12 {
 		int s = (int)(Math.random()*second);
 		map [f][s] = 1;
 		
-		// 도착지점 설정
-		map [first][second] = 5;
-		
 		do {
+			
 			for(int i=0; i<first; i++) {
 				for(int k=0; k<second; k++) {
-					if(map[i][k] == 0 || map[i][k] == 5) {
-						System.out.print("□");
+					if(a == i && b == k) {
+						System.out.print("●");
+					}
+					else if(map[i][k] == 0) {
+						System.out.print("▥");
 					} else if(map[i][k] == 1) {
 						System.out.print("★");
+					} else if(map[i][k] == 5) {
+						System.out.print("♬");
 					}
 				}
 				System.out.println();
 			}
 			
-			System.out.print("left(4) right(6) up(8) down(2) exut(9): ");
+			System.out.print("left(4) right(6) up(8) down(2) exit(9): ");
 			num = sc.nextInt();
 			
 			if (num == 4) { // left
-				
+				if(b==0) {
+					b = (second-1);
+				} else {
+					b--;
+				}
 			} else if(num == 6) { // right 
-				
-			} else if(num == 2) { // up
-				
-			} else if(num == 8) { // down
-				
+				if(b==(second-1)) {
+					b = 0;
+				} else {
+					b++;
+				}
+			} else if(num == 8) { // up
+				if(a==0) {
+					a = (first-1);
+				} else {
+					a--;
+				}
+			} else if(num == 2) { // down
+				if(a==(first-1)) {
+					a = 0;
+				} else {
+					a++;
+				}
 			} else if(num == 9) { // exit
+				System.out.println("게임을 종료합니다.");
 				run = false;
 			}
 			
-		} while(run && num != 9);
-		
+			if(a==f && b==s) {
+				// 도착지점 설정
+				map [first-1][second-1] = 5;		
+				// 별 없애기
+				map [f][s] = 0;
+				System.out.println("도착지점 문이 열렸습니다.");
+			}
+			
+			if(a==(first-1) && b==(second-1)) {
+				if(map[f][s] == 1) {
+					System.out.println("별을 먹지 못했습니다.");
+				} else {
+				System.out.println("게임 클리어");
+				run = false; 
+				}
+			}
+			
+		} while(run);	
 	}
-
 }
