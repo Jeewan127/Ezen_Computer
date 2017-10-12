@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class StatemantEx21 {
+public class StatementEx30 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
