@@ -1,5 +1,5 @@
 
-public class ArrayListMain01 {
+public class ArrayMain01 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

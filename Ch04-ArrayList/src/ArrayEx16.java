@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class ArrayListEx16 {
+public class ArrayEx16 {
 
 	public static void main(String[] args)  {
 		// TODO Auto-generated method stub

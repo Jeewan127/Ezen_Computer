@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 import javax.xml.stream.events.StartDocument;
 
-public class ArrayListEx04 {
+public class ArrayEx04 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
