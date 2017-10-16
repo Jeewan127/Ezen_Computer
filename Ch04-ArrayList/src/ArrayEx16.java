@@ -13,7 +13,7 @@ public class ArrayEx16 {
 		
 		Scanner sc = new Scanner(System.in);
 		
-		int a = 0, b = 0; // 움직이는 변수
+		int a = 0, b = 0; // 움직이는 변수(숫자키로 움직이는 애)
 		int c , d;
 		int num;
 		int boomx, boomy;
@@ -53,7 +53,7 @@ public class ArrayEx16 {
 		map [f][s] = 1;
 		
 		do {
-			
+			// 맵 출력
 			for(int i=0; i<first; i++) {
 				for(int k=0; k<second; k++) {
 					if(a == i && b == k) {
@@ -73,6 +73,7 @@ public class ArrayEx16 {
 				System.out.println();
 			}
 			
+			// 메뉴 호출
 			System.out.print("left(4) right(6) up(8) down(2) set(7) exit(9) reset(3): ");
 			num = sc.nextInt();
 			

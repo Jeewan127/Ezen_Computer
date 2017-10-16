@@ -15,10 +15,8 @@ public class FunctionEx06 {
 		
 		System.out.print("숫자 입력: ");
 		int num = sc.nextInt();
-		int result;
-		result = sum(num);
 		
-		System.out.println(result);
+		System.out.println(sum(num));
 	}
 	
 	public static int sum(int number) {

@@ -24,14 +24,16 @@ public class FunctionEx05 {
 		String [] code = num.split("\\s"); /* num에 저장된 숫자가 띄어쓰기에 의해 한 단어씩
 										      code[]에 저장 */
 		
-		int[] encode;
-		int [] decode;
+		int[] encode;	// encode 결과 값을 저장할 배열
+		int [] decode;  // decode 결과 값을 저장할 배열
 		
 		encode=encoding(code);
 		for(int i=0; i<encode.length; i++) {
 			System.out.print(encode[i] + "\t");
 		}
+		
 		System.out.println();
+		
 		decode=decoding(encode);
 		for(int i=0; i<decode.length; i++) {
 			System.out.print(decode[i] + "\t");
