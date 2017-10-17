@@ -45,13 +45,14 @@ public class FunctionEx14 {
 				cash = category(cash, num);
 			} else if(number == 4) {
 				System.out.println("프로그램이 종료 되었습니다.");
+				System.out.println("잔액: " + cash);
 				run = false;
 			}
 			
-			if(number != 0) {
+			/*if(number != 0) {
 				run = false;
 				System.out.println("잔액: " + cash);
-			}
+			}*/
 		} while(run);
 	}
 	public static void categoryPrint(int cash) {
@@ -65,11 +66,11 @@ public class FunctionEx14 {
 	}
 	
 	public static int category(int cash, int num) {
-		System.out.println("옵션 선택");
+		System.out.println("*********옵션 선택********");
 		System.out.println("1. 빨강, 2. 파랑, 3. 초록");
 		System.out.println("   +50원    +100원   +150원");
 		System.out.println();
-		System.out.print("0: 100원 넣기, 1~3 색깔 선택, 4 프로그램 종료: ");
+		System.out.print("1~3 색깔 선택, 4 프로그램 종료: ");
 		
 		Scanner sc = new Scanner(System.in);
 		int colornum = sc.nextInt();
@@ -79,11 +80,11 @@ public class FunctionEx14 {
 			if(cash > (num+50)) {
 				cash = cash - (num + 50);
 				if(num == 300) {
-					System.out.println("빨강반팔");
+					System.out.println("선택한 상품: 빨강-반팔");
 				} else if(num == 400) {
-					System.out.println("파랑반팔");
+					System.out.println("선택한 상품: 파랑-반팔");
 				} else if(num == 500) {
-					System.out.println("녹색반팔");
+					System.out.println("선택한 상품: 녹색-반팔");
 				}
 			} else {
 				System.out.println("잔액이 부족합니다.");
@@ -92,11 +93,11 @@ public class FunctionEx14 {
 			if(cash > (num+100)) {
 				cash = cash - (num + 100);
 				if(num == 300) {
-					System.out.println("빨강긴팔");
+					System.out.println("선택한 상품: 빨강-긴팔");
 				} else if(num == 400) {
-					System.out.println("파랑긴팔");
+					System.out.println("선택한 상품: 파랑-긴팔");
 				} else if(num == 500) {
-					System.out.println("녹색긴팔");
+					System.out.println("선택한 상품: 녹색-긴팔");
 				}
 			} else {
 				System.out.println("잔액이 부족합니다.");
@@ -105,11 +106,11 @@ public class FunctionEx14 {
 			if(cash > (num+150)) {
 				cash = cash - (num + 150);
 				if(num == 300) {
-					System.out.println("빨강바지");
+					System.out.println("선택한 상품: 빨강-바지");
 				} else if(num == 400) {
-					System.out.println("파랑바지");
+					System.out.println("선택한 상품: 파랑-바지");
 				} else if(num == 500) {
-					System.out.println("녹색바지");
+					System.out.println("선택한 상품: 녹색-바지");
 				}
 			} else {
 				System.out.println("잔액이 부족합니다.");
