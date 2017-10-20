@@ -2,7 +2,7 @@
  	주사위를 던져 나온 수만큼 전진
  */
 
-package game;
+package Game;
 
 import java.util.Scanner;
 
@@ -56,7 +56,7 @@ class DiceGame {
 	}
 	
 }
-public class Main {
+public class Dice_Game {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
