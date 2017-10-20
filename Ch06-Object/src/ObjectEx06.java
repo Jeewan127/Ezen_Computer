@@ -1,93 +1,38 @@
-import java.util.Scanner;
-
-/*
- 	로또 프로그램
- 	0: 숫자생성 5: 프로그램 종료
- 	0번을 선택하면 숫자 6개를 랜덤으로 생성
- 	숫자는 중복되면 안된다.
- */
-class Lotto {
-	Scanner sc = new Scanner(System.in);
-	int lotto [] = new int [6];
-	int user [] = new int [6];
-	int bonus = (int)(Math.random()*45)+1;
-	int score=0;
-	int bonusScore = 0;
-	int count=0;
+class Student1 {
+	private String name;
+	private int age;
+	private String addr;
+	private int sumAge=0;
 	
-	int d1=0, d2=0, d3=0, d4=0, d5=0;
 	
-	public void lottoNum() { // 로또 숫자를 중복되지 않게 비교하여 받아옴
-		for(int i=0; i<lotto.length; i++) {
-			lotto[i] = (int)(Math.random()*45)+1;
-			for(int k=0; k<i; k++) {
-				if(lotto[i] == lotto[k] || lotto[i] == bonus) {
-					i--;
-				}
-			}
-		}
+/*	public Student1(String tmpName, int tmpAge, String tmpAddr) {
+		this.name = tmpName;
+		this.age = tmpAge;
+		this.addr = tmpAddr;
+	}*/
+	public String getName() {
+		return name;
 	}
-	
-	public void userNum() { // 내가 산 로또를 중복되지 않게 비교하여 받아옴
-		for(int i=0; i<user.length; i++) {
-			user[i] = (int)(Math.random()*45)+1;
-			for(int k=0; k<i; k++) {
-				if(user[i] == user[k]) {
-					i--;
-				}
-			}
-		}
+	public void setName(String name) {
+		this.name = name;
 	}
-	
-	public void lottoPrint() {
-		for(int i=0; i<lotto.length; i++) {
-			System.out.print(lotto[i] + " ");
-		}
+	public int getAge() {
+		return age;
 	}
-	
-	public void userPrint() {
-		for(int i=0; i<user.length; i++) {
-			System.out.print(user[i] + " ");
-		}
+	public void setAge(int age) {
+		this.age = age;
+	}
+	public String getAddr() {
+		return addr;
+	}
+	public void setAddr(String addr) {
+		this.addr = addr;
 	}
 
-	public void lottoResult() {
-		for(int i=0; i<lotto.length; i++) {
-			for(int k=i; k<i+1; k++) {
-				if(user[i] == lotto[k]) {
-					score += 2;
-				} else if(user[i] == bonus) {
-					bonusScore += 2;
-				}
-			}
-		}
-	}
-	
-	public void lottoRank() {
-		if(this.score == 12) {
-			System.out.println("1등 당첨입니다.");
-			this.d1 ++;
-		} else if(this.score == 8 && this.bonusScore == 2) {
-			System.out.println("2등 당첨입니다.");
-			this.d2 ++;
-		}else if(this.score == 10) {
-			System.out.println("3등 당첨입니다.");
-			this.d3 ++;
-		} else if(this.score == 8) {
-			System.out.println("4등 당첨입니다.");
-			this.d4 ++;
-		} else if(this.score == 6) {
-			System.out.println("5등 당첨입니다.");
-			this.d5 ++;
-		} else {
-			System.out.println("당첨되지 않았습니다.");
-		}
-	}
-
-	public void resultPrint() {
-		System.out.println("1등\t2등\t3등\t4등\t5등");
-		System.out.println(d1 + "\t" + d2 + "\t" + d3 + "\t" + d4 + "\t" + d5);
-		System.out.println("총 횟수: " + this.count);
+	public void studentPrint() {
+		System.out.println("이름: " + this.name);
+		System.out.println("나이: " + this.age);
+		System.out.println("주소: " + this.addr);
 	}
 }
 
@@ -95,31 +40,28 @@ public class ObjectEx06 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Scanner sc = new Scanner(System.in);
-		Lotto lotto = new Lotto();
+		Student1 std1 = new Student1();
+		Student1 std2 = new Student1();
+		Student1 std3 = new Student1();
 		
-		lotto.lottoNum();
+		std1.setName("지완");
+		std1.setAge(26);
+		std1.setAddr("부천");
 		
-		while(lotto.d1 != 1) {
-			/*printMenu();
-			System.out.print(">>>>>>>>> ");
-			int num = sc.nextInt();*/
-			
-			lotto.userNum();
-			System.out.print("로또 번호는: ");
-			lotto.userPrint();
-			System.out.println();
-			lotto.lottoResult();
-			lotto.lottoRank();
-			System.out.println();
-			lotto.count++;
-		}
+		std2.setName("태형");
+		std2.setAge(26);
+		std2.setAddr("혜화");
 		
-		lotto.resultPrint();
+		std3.setName("성민");
+		std3.setAge(26);
+		std3.setAddr("이천");
+		
+		std1.studentPrint();
+		std2.studentPrint();
+		std3.studentPrint();
+		
+		System.out.println("3명의 나이의 합: " + 
+		(std1.getAge()+std2.getAge()+std3.getAge()));
 	}
-	/*public static void printMenu() {
-		System.out.println("로또를 시작합니다.");
-		System.out.println("0: 로또 생성\t5: 종료");
-		System.out.println("----------------------");
-	}*/
+
 }
