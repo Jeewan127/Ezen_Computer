@@ -10,19 +10,6 @@ import java.util.Scanner;
   	학생객체를 사용하여 학생의 이름, 나이, 주소를 입력후
   	학생에 대한 정보를 출력하는 프로그램을 작성하세요.
  */
-
-class Student {
-	
-	String name;
-	int age;
-	String juso;
-	
-	public void printInfo() {
-		System.out.println("이름\t나이\t주소");
-		System.out.println(name + "\t" + age + "\t" + juso);
-	}
-	
-}
 public class ObjectEx01 {
 
 	public static void main(String[] args) {
@@ -38,7 +25,7 @@ public class ObjectEx01 {
 		student.age = sc.nextInt();
 		sc.nextLine();
 		System.out.print("주소 입력: ");
-		student.juso = sc.nextLine();
+		student.addr = sc.nextLine();
 		
 		student.printInfo();
 		
