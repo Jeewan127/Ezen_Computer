@@ -1,5 +1,10 @@
 
 public class SuperMan extends Person {
+	
+	void printEnergy() {
+		System.out.println("에너지: " + getEnergy());
+	}
+	
 	void flySky() {
 		System.out.println("슈퍼맨 하늘 날기");
 	}

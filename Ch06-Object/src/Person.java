@@ -2,7 +2,16 @@
 public class Person {
 	
 	private int attackPoint;
+	private int energy;
 	
+	public int getEnergy() {
+		return energy;
+	}
+
+	public void setEnergy(int energy) {
+		this.energy = energy;
+	}
+
 	public int getAttackPoint() {
 		return attackPoint;
 	}
@@ -21,5 +30,9 @@ public class Person {
 	
 	void moveArm() {
 		System.out.println("팔 움직이기");
+	}
+	
+	void printEnergy() {
+		System.out.println("에너지: " + getEnergy());
 	}
 }
