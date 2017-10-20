@@ -60,7 +60,7 @@ public class ObjectEx06 {
 		std2.studentPrint();
 		std3.studentPrint();
 		
-		System.out.println("3명의 나이의 합: " + 
+		System.out.println("3명의 나이의 합 : " + 
 		(std1.getAge()+std2.getAge()+std3.getAge()));
 	}
 
