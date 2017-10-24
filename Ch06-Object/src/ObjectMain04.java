@@ -7,8 +7,8 @@ public class ObjectMain04 {
 		Scanner sc = new Scanner(System.in);
 		
 		SuperMan superman = new SuperMan(10, 30, "슈퍼맨");
-		BetMan betman = new BetMan(5, 30, 10, "베트맨");
-		IronMan ironman = new IronMan(7, 30, 10, "아이언맨");
+		BetMan betman = new BetMan(5, 30, 20, "베트맨");
+		IronMan ironman = new IronMan(7, 30, 30, "아이언맨");
 		Person selectedChar1 = null;
 		Person selectedChar2 = null;
 		
