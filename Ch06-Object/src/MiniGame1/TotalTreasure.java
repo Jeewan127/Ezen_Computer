@@ -1,4 +1,4 @@
-package MiniGame;
+package MiniGame1;
 
 public class TotalTreasure {
 	
