@@ -4,7 +4,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-Student[] students = new Student[3];
+		Student[] students = new Student[3];
 		
 		students[0] = new Student("±èÅÂÈñ",30,100,80,60);
 		students[1] = new Student("ÀüÁöÇö", 25,80,80,60);

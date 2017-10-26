@@ -50,6 +50,5 @@ public class Student {
 
 	public void setSciGrade(int sciGrade) {
 		this.sciGrade = sciGrade;
-	}	}
-	
+	}	
 }
