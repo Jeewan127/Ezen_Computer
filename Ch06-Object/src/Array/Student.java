@@ -6,7 +6,7 @@ public class Student {
 	private int mathGrade;
 	private int engGrade;
 	private int sciGrade;
-	
+		
 	public Student(String name,int age,int mathGrade,int engGrade,int sciGrade) {
 		this.name = name;
 		this.age = age;
@@ -27,28 +27,23 @@ public class Student {
 	public void setAge(int age) {
 		this.age = age;
 	}
-
-	public int getMathGrade() {
+		public int getMathGrade() {
 		return mathGrade;
 	}
-
-	public void setMathGrade(int mathGrade) {
+		public void setMathGrade(int mathGrade) {
 		this.mathGrade = mathGrade;
 	}
-
-	public int getEngGrade() {
+		public int getEngGrade() {
 		return engGrade;
 	}
-
-	public void setEngGrade(int engGrade) {
+		public void setEngGrade(int engGrade) {
 		this.engGrade = engGrade;
 	}
-
-	public int getSciGrade() {
+		public int getSciGrade() {
 		return sciGrade;
 	}
-
-	public void setSciGrade(int sciGrade) {
+		public void setSciGrade(int sciGrade) {
 		this.sciGrade = sciGrade;
 	}	
 }
+

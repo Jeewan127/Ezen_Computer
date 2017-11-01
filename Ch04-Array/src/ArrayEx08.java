@@ -12,8 +12,7 @@ public class ArrayEx08 {
 		int [] map = new int[mapn];
 		int number, x, count=0;
 		int a=map.length+1, b=map.length+2;
-		
-		
+		boolean run = true;
 		
 		for(int i=0; i<map.length; i++) {
 			map[i] = 0;
@@ -33,24 +32,15 @@ public class ArrayEx08 {
 				}
 			}
 			
-//			System.out.print(" " + x);
+			System.out.print(" " + x);
 			System.out.println("");
 			System.out.print("값을 입력하세요: ");
 			number = sc.nextInt();
 			
 			if(number == x) {
 				a = x;
-				System.out.println("지뢰를 밝았습니다.");
-				for(int i=0; i<map.length; i++) {
-					if(a == i) {
-						System.out.print("X");
-					} else if(b == i || map[i] == 2) {
-						map[b] = 2;
-						System.out.print("O");
-					} else if(map[i] == 0) {
-						System.out.print("#");
-					} 
-				}
+				run = false;
+				
 			} else if(number != x) {
 				if(number == b) {
 						System.out.println("이미 선택하셨습니다.");
@@ -63,21 +53,11 @@ public class ArrayEx08 {
 			}
 			
 			if(count == map.length-1) {
-				for(int i=0; i<map.length; i++) {	
-					if(a == i) {
-						System.out.print("X");
-					} else if(b == i || map[i] == 2) {
-						map[b] = 2;
-						System.out.print("O");
-						} else if(map[i] == 0) {
-						System.out.print("#");
-					}
-				}
 				System.out.println();
 				System.out.println("게임 클리어");
-				break;
+				run = false;
 			}
 		
-		} while(number != x);
+		} while(run);
 	}
 }

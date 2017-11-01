@@ -25,6 +25,9 @@ public class ArrayListMain01 {
 				System.out.println("전체 데이터 보기");
 				for(int i=0; i<items.size(); i++) {
 					System.out.println((i+1) + ". " + items.get(i));
+				} System.out.println();
+				for(Integer item : items) {
+					System.out.println(item);
 				}
 			} else if(num == 4) {
 				System.out.println("전체 삭제");
