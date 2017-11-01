@@ -13,8 +13,11 @@ public class Main {
 		int num = 0;
 		int x=1, y=0;
 		
-		int week_count = cal.getActualMaximum(Calendar.WEEK_OF_MONTH);
+		
+		util.printDate(cal);
+		
 		cal.set(Calendar.DAY_OF_MONTH, 1);
+		int week_count = cal.getActualMaximum(Calendar.WEEK_OF_MONTH);
 		int first_day = cal.get(Calendar.DAY_OF_WEEK);
 		int day_count = cal.getActualMaximum(Calendar.DAY_OF_MONTH);
 		int count = 1;

@@ -1,4 +1,4 @@
-package Abstract;
+
 
 public class BetMan extends Person{
 

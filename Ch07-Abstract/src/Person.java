@@ -1,4 +1,4 @@
-package Abstract;
+
 
 abstract class Person {
 	public abstract void attack();

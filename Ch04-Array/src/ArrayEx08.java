@@ -33,7 +33,7 @@ public class ArrayEx08 {
 				}
 			}
 			
-			System.out.print(" " + x);
+//			System.out.print(" " + x);
 			System.out.println("");
 			System.out.print("값을 입력하세요: ");
 			number = sc.nextInt();
