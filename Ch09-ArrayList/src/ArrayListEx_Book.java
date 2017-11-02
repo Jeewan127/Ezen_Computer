@@ -1,11 +1,11 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class ArrayListEx02 {
+public class ArrayListEx_Book {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		ArrayList<Ex_Book> books = new ArrayList<>();
+		ArrayList<Book> books = new ArrayList<>();
 		
 		Scanner sc = new Scanner(System.in);
 		
@@ -14,7 +14,6 @@ public class ArrayListEx02 {
 		
 		String str1 = "";
 		String str2 = "";
-		
 		
 		do {
 			printMenu();
@@ -30,7 +29,7 @@ public class ArrayListEx02 {
 				System.out.print("출판사 이름: ");
 				str2 = sc.nextLine();
 				
-				Ex_Book book = new Ex_Book(number, str1, num, str2);
+				Book book = new Book(number, str1, num, str2);
 				books.add(book);
 				number ++;
 			} else if(num == 1) {
@@ -47,7 +46,7 @@ public class ArrayListEx02 {
 				System.out.println("이름으로 책 검색");
 				System.out.print("이름입력: ");
 				str1 = sc.nextLine();
-				for(Ex_Book a : books) {
+				for(Book a : books) {
 					if(a.getName().contains(str1)) {
 						a.printInfo();
 					}

@@ -24,6 +24,7 @@ public class ArrayEx08 {
 			for(int i=0; i<map.length; i++) {	
 				if(a == i) {
 					System.out.print("X");
+					
 				} else if(b == i || map[i] == 2) {
 					map[b] = 2;
 					System.out.print("O");
@@ -39,8 +40,19 @@ public class ArrayEx08 {
 			
 			if(number == x) {
 				a = x;
-				run = false;
-				
+				System.out.println("지뢰를 밟았습니다.");
+				for(int i=0; i<map.length; i++) {	
+					if(a == i) {
+						System.out.print("X");
+						
+					} else if(b == i || map[i] == 2) {
+						map[b] = 2;
+						System.out.print("O");
+						} else if(map[i] == 0) {
+						System.out.print("#");
+					}
+				}
+				run = false;			
 			} else if(number != x) {
 				if(number == b) {
 						System.out.println("이미 선택하셨습니다.");
@@ -55,6 +67,17 @@ public class ArrayEx08 {
 			if(count == map.length-1) {
 				System.out.println();
 				System.out.println("게임 클리어");
+				for(int i=0; i<map.length; i++) {	
+					if(a == i) {
+						System.out.print("X");
+						
+					} else if(b == i || map[i] == 2) {
+						map[b] = 2;
+						System.out.print("O");
+						} else if(map[i] == 0) {
+						System.out.print("#");
+					}
+				}
 				run = false;
 			}
 		

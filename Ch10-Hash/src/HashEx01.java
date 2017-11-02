@@ -43,7 +43,7 @@ public class HashEx01 {
 			} else if(num == 2) {
 				System.out.println("삭제할 번호: ");
 				num = sc.nextInt();
-				students.remove(num-1);
+				students.remove(num);
 			} else if(num == 3) {
 				sc.nextLine();
 				System.out.print("번호 입력: ");

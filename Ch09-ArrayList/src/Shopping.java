@@ -1,20 +1,20 @@
 
-public class Ex_Book {
+public class Shopping {
 	private int number;
 	private String name;
 	private int price;
-	private String publisher;
+	private int stock;
 	
-	
-	public Ex_Book(int number, String name, int price, String publisher) {
+	public Shopping(int number, String name, int price, int stock) {
+		super();
 		this.number = number;
 		this.name = name;
 		this.price = price;
-		this.publisher = publisher;
+		this.stock = stock;
 	}
 	
 	public void printInfo() {
-		System.out.println(this.number + "\t" + this.name + "\t" + this.price + "\t" + this.publisher);
+		System.out.println(this.number + "\t" + this.name + "\t" + this.price + "\t" + this.stock);
 	}
 	
 	public String getName() {
@@ -29,13 +29,12 @@ public class Ex_Book {
 	public void setPrice(int price) {
 		this.price = price;
 	}
-	public String getPublisher() {
-		return publisher;
+	public int getStock() {
+		return stock;
 	}
-	public void setPublisher(String publisher) {
-		this.publisher = publisher;
+	public void setStock(int stock) {
+		this.stock = stock;
 	}
-
 	public int getNumber() {
 		return number;
 	}
@@ -43,4 +42,5 @@ public class Ex_Book {
 	public void setNumber(int number) {
 		this.number = number;
 	}
+	
 }
