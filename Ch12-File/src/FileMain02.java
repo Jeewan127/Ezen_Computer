@@ -11,8 +11,10 @@ public class FileMain02 {
 		String writeString = "Hello. I'm hungry.";
 		
 		OutputStream out = null;
+		byte [] buffer = null;
+		
 		try {
-			byte [] buffer = writeString.getBytes("UTF-8");
+			buffer = writeString.getBytes("UTF-8");
 			
 			out = new FileOutputStream(PATH);
 			out.write(buffer);
@@ -20,7 +22,7 @@ public class FileMain02 {
 			// TODO: handle exception
 		} finally {
 			try {
-				out.close();
+				out.close();  // ÇÊ¼ö
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

@@ -15,7 +15,7 @@ public class ArrayEx09 {
 		int [] map2 = new int [size];
 		
 		for(int i=0; i<map.length; i++) {
-			map[i] = map.length+1;
+			map[i] = map.length+10;
 		}
 		
 		for(int k=0; k<map.length; k++) {
@@ -23,7 +23,7 @@ public class ArrayEx09 {
 		}
 		
 		for(int r=0; r<map.length; r++) {
-				if(map[r] == map.length+1) {
+				if(map[r] == map.length+10) {
 					System.out.print("#");
 				}  
 			}
@@ -38,14 +38,14 @@ public class ArrayEx09 {
 					System.out.print(map[i]);
 				} else if(map[i] == map2[i]){
 					System.out.print(map[i]);
-				} else if(map[i] == map.length+1) {
+				} else if(map[i] == map.length+10) {
 					System.out.print("#");
 				} 
 			}
 			
 			boolean exit = true;
 			for(int k=0; k<map.length; k++) {
-				if(map[k] == map.length+1) {
+				if(map[k] == map.length+10) {
 					exit = false;
 					break;
 				}

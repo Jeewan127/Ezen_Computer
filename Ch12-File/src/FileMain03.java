@@ -28,6 +28,7 @@ public class FileMain03 {
 				e.printStackTrace();
 			}
 		}
+		
 		if(data != null) {
 			try {
 				readString = new String(data, "UTF-8");
