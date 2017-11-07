@@ -6,6 +6,7 @@ public class Hulk implements Character{
 	private int mp=0; // 마력
 	private int dp; // 방어력
 	private int ap; // 공격력
+	private int skillAttack;
 	
 	public Hulk(String name, int hp, int mp, int dp, int ap) {
 		super();
@@ -61,14 +62,43 @@ public class Hulk implements Character{
 	
 	@Override
 	public int hpMinus(int attackPoint) {
-		this.hp -= attackPoint;
-		return hp;
+		int result = attackPoint - this.dp;
+		this.hp -= result;
+		return this.hp;
+	}
+	
+	@Override
+	public void printHp(int hp) {
+		if(hp == 0) {
+			this.hp = 0;
+			System.out.println(this.name + ": " + "HP: " + this.hp);	
+		} else {
+			System.out.println(this.name + ": " + "HP: " + this.hp);
+		}	
+	}
+	
+	@Override
+	public void printMp() {
+		System.out.println(this.name + ": " + "MP: " + this.mp);
 	}
 
 	@Override
 	public int attack() {
 		System.out.println(this.name + "기본공격");
+		this.mp += 5;
 		return this.ap;
+	}
+	
+	@Override
+	public int skillAttack() {
+		if(this.mp >= 20) {
+			System.out.println("몸통박치기!!");
+			this.mp -= 20;
+			this.skillAttack = 20;
+		} else if(this.mp < 20) {
+			this.skillAttack = 0;
+		}
+		return this.skillAttack;
 	}
 
 	@Override
@@ -77,7 +107,7 @@ public class Hulk implements Character{
 		System.out.println("공격력: " + this.ap);
 		System.out.println("방어력: " + this.dp);
 		System.out.println("체력: " + this.hp);
-		System.out.println("1: 선택\t2: 이전으로 돌아가기");
+		System.out.print("1: 선택\t2: 이전으로 돌아가기");
 	}
 	
 	@Override

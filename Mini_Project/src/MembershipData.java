@@ -53,7 +53,7 @@ public static MembershipData current = null;
 	}
 	
 	public void writeMembership(String membershipPATH, String memberships) {
-		File fileMembership = new File(membershipPATH);
+		/*File fileMembership = new File(membershipPATH);
 		
 		if(!fileMembership.exists()) {
 			try {
@@ -62,7 +62,7 @@ public static MembershipData current = null;
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		}
+		}*/
 		
 		OutputStream outMembership = null;
 		try {

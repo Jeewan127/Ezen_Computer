@@ -6,6 +6,7 @@ public class SuperMan implements Character{
 	private int mp=0; // 마력
 	private int dp; // 방어력
 	private int ap; // 공격력
+	private int skillAttack;
 	
 	public SuperMan(String name, int hp, int mp, int dp, int ap) {
 		super();
@@ -15,7 +16,6 @@ public class SuperMan implements Character{
 		this.dp = dp;
 		this.ap = ap;
 	}
-
 	
 	public String getName() {
 		return name;
@@ -59,16 +59,48 @@ public class SuperMan implements Character{
 		this.ap = ap;
 	}
 
+	public int getSkillAttack() {
+		return skillAttack;
+	}
+
+	public void setSkillAttack(int skillAttack) {
+		this.skillAttack = skillAttack;
+	}
+
 	@Override
-	public int hpMinus(int attackPoint) {
-		this.hp -= attackPoint;
-		return hp;
+	public void hpMinus(int attackPoint) {
+		int result = attackPoint - this.dp;
+		this.hp -= result;
+	}
+	
+	@Override
+	public int printHp() {
+		System.out.println(this.name + ": " + "HP: " + this.hp);	
+		return this.hp;
+	}
+	
+	@Override
+	public void printMp() {
+		System.out.println(this.name + ": " + "MP: " + this.mp);
 	}
 
 	@Override
 	public int attack() {
 		System.out.println(this.name + "기본공격");
+		this.mp += 8;
 		return this.ap;
+	}
+	
+	@Override
+	public int skillAttack() {
+		if(this.mp >= 20) {
+			System.out.println("레이저 공격!!");
+			this.mp -= 20;
+			this.skillAttack = 20;
+		} else if(this.mp < 20) {
+			this.skillAttack = 0;
+		}
+		return this.skillAttack;
 	}
 
 	@Override
@@ -77,7 +109,7 @@ public class SuperMan implements Character{
 		System.out.println("공격력: " + this.ap);
 		System.out.println("방어력: " + this.dp);
 		System.out.println("체력: " + this.hp);
-		System.out.println("1: 선택\t2: 이전으로 돌아가기");
+		System.out.print("1: 선택\t2: 이전으로 돌아가기");
 	}
 	
 	@Override

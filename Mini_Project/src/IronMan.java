@@ -6,7 +6,8 @@ public class IronMan implements Character{
 	private int mp=0; // 마력
 	private int dp; // 방어력
 	private int ap; // 공격력
-	
+	private int skillAttack;
+
 	public IronMan(String name, int hp, int mp, int dp, int ap) {
 		super();
 		this.name = name;
@@ -55,6 +56,14 @@ public class IronMan implements Character{
 	public void setAp(int ap) {
 		this.ap = ap;
 	}
+	
+	public int getSkillAttack() {
+		return skillAttack;
+	}
+
+	public void setSkillAttack(int skillAttack) {
+		this.skillAttack = skillAttack;
+	}
 
 
 	@Override
@@ -63,7 +72,7 @@ public class IronMan implements Character{
 		System.out.println("공격력: " + this.ap);
 		System.out.println("방어력: " + this.dp);
 		System.out.println("체력: " + this.hp);
-		System.out.println("1: 선택\t2: 이전으로 돌아가기");
+		System.out.print("1: 선택\t2: 이전으로 돌아가기");
 	}
 	@Override
 	public void printName() {
@@ -72,14 +81,42 @@ public class IronMan implements Character{
 
 	@Override
 	public int hpMinus(int attackPoint) {
-		this.hp -= attackPoint;
-		return hp;
+		int result = attackPoint - this.dp;
+		this.hp -= result;
+		return this.hp;
+	}
+	
+	@Override
+	public void printHp(int hp) {
+		if(hp == 0) {
+			this.hp = 0;
+			System.out.println(this.name + ": " + "HP: " + this.hp);	
+		} else {
+			System.out.println(this.name + ": " + "HP: " + this.hp);
+		}	
+	}
+	
+	@Override
+	public void printMp() {
+		System.out.println(this.name + ": " + "MP: " + this.mp);
 	}
 
 	@Override
 	public int attack() {
 		System.out.println(this.name + "기본공격");
+		this.mp += 10;
 		return this.ap;
 	}
 
+	@Override
+	public int skillAttack() {
+		if(this.mp >= 15) {
+			System.out.println("레이저 공격!!");
+			this.mp -= 15;
+			this.skillAttack = 20;
+		} else if(this.mp < 15) {
+			this.skillAttack = 0;
+		}
+		return this.skillAttack;
+	}
 }

@@ -6,6 +6,7 @@ public class Thor implements Character{
 	private int mp=0; // 마력
 	private int dp; // 방어력
 	private int ap; // 공격력
+	private int skillAttack;
 	
 	public Thor(String name, int hp, int mp, int dp, int ap) {
 		super();
@@ -59,16 +60,53 @@ public class Thor implements Character{
 		this.ap = ap;
 	}
 	
+	public int getSkillAttack() {
+		return skillAttack;
+	}
+
+	public void setSkillAttack(int skillAttack) {
+		this.skillAttack = skillAttack;
+	}
+
 	@Override
 	public int hpMinus(int attackPoint) {
-		this.hp -= attackPoint;
-		return hp;
+		int result = attackPoint - this.dp;
+		this.hp -= result;
+		return this.hp;
+	}
+	
+	@Override
+	public void printHp(int hp) {
+		if(hp == 0) {
+			this.hp = 0;
+			System.out.println(this.name + ": " + "HP: " + this.hp);	
+		} else {
+			System.out.println(this.name + ": " + "HP: " + this.hp);
+		}	
+	}
+	
+	@Override
+	public void printMp() {
+		System.out.println(this.name + ": " + "MP: " + this.mp);
 	}
 
 	@Override
 	public int attack() {
 		System.out.println(this.name + "기본공격");
+		this.mp += 10;
 		return this.ap;
+	}
+	
+	@Override
+	public int skillAttack() {
+		if(this.mp >= 25) {
+			System.out.println("망치 내려치기!!");
+			this.mp -= 25;
+			this.skillAttack = 20;
+		} else if(this.mp < 25) {
+			this.skillAttack = 0;
+		}
+		return this.skillAttack;
 	}
 
 	@Override

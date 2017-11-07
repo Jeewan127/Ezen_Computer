@@ -11,6 +11,10 @@ public class Membership {
 	public String saveData() {
 		return this.id + "," + this.pw + "\n";
 	}
+	
+	public String loadData() {
+		return "ID: " + this.id + " PW: " + this.pw;
+	}
 
 	public String getId() {
 		return id;
