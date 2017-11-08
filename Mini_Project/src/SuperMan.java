@@ -68,15 +68,20 @@ public class SuperMan implements Character{
 	}
 
 	@Override
-	public void hpMinus(int attackPoint) {
+	public int hpMinus(int attackPoint) {
 		int result = attackPoint - this.dp;
 		this.hp -= result;
+		return this.hp;
 	}
 	
 	@Override
-	public int printHp() {
-		System.out.println(this.name + ": " + "HP: " + this.hp);	
-		return this.hp;
+	public void printHp(int hp) {
+		if(hp == 0) {
+			this.hp = 0;
+			System.out.println(this.name + ": " + "HP: " + this.hp);	
+		} else {
+			System.out.println(this.name + ": " + "HP: " + this.hp);
+		}	
 	}
 	
 	@Override
